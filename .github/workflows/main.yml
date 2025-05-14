@@ -1,0 +1,20 @@
+name: Upload Artifact Demo
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  artifact-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a demo file
+        run: |
+          mkdir -p demo-folder
+          echo "This is for the assignment" > demo-folder/assignment.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: assignment-file
+          path: demo-folder/assignment.txt
