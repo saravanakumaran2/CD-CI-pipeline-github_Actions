@@ -25,5 +25,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
 
-      - name: Show secret (for demo only)
+      - name: Show secret 
         run: echo "My secret is ${{ secrets.MY_CUSTOM_SECRET }}"
