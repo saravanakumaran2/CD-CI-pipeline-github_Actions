@@ -1,5 +1,8 @@
 name: Deploy HTML Site
 
+permissions:
+  contents: write  
+
 on:
   push:
     branches:
@@ -22,5 +25,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
 
-      - name: Show secret
+      - name: Show secret (for demo only)
         run: echo "My secret is ${{ secrets.MY_CUSTOM_SECRET }}"
