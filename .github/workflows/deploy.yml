@@ -1,13 +1,7 @@
-name: Deploy HTML Site
-
-permissions:
-  contents: write  
+name: Artifact Demo Workflow
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
@@ -16,14 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+    - name: Build Step (Create file)
+      run: |
+        mkdir output
+        echo "This is a sample build artifact" > output/result.txt
 
-      - name: Show secret 
-        run: echo "My secret is ${{ secrets.MY_CUSTOM_SECRET }}"
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-result
+        path: output/
+        retention-days: 7
