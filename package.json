@@ -1,0 +1,13 @@
+{
+  "name": "github-actions-service-container-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
